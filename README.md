@@ -51,6 +51,10 @@ If you get an error about CocoaPods being unable to find compatible versions, ru
     
     $ pod repo update
 
+Use variable `FCM_AUTO_INIT_ENABLED` to disable auto initialization of Firebase Messaging:
+    $ cordova plugin add cordova-plugin-firebase-messaging \
+        --variable FCM_AUTO_INIT_ENABLED=false
+
 Use variables `IOS_FIREBASE_POD_VERSION` and `ANDROID_FIREBASE_BOM_VERSION` to override dependency versions on Android:
 
     $ cordova plugin add cordova-plugin-firebase-messaging \
@@ -401,6 +405,26 @@ cordova.plugins.firebase.messaging.unsubscribe("news");
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `topic` | `string` | Topic name |
+
+#### Returns
+
+`Promise`<`void`\>
+
+Callback when operation is completed
+
+___
+
+### enableAutoInit
+
+**enableAutoInit**(): `Promise`<`void`\>
+
+Enable automatic initialization if it was disabled by configuration.
+
+**`Example`**
+
+```ts
+cordova.plugins.firebase.messaging.enableAutoInit();
+```
 
 #### Returns
 

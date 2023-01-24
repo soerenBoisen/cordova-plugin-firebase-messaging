@@ -172,6 +172,10 @@
     self.tokenRefreshCallbackId = command.callbackId;
 }
 
+- (void)enableAutoInit:(CDVInvokedUrlCommand *)command {
+    [FIRMessaging messaging].autoInitEnabled = YES;
+}
+
 - (void)sendNotification:(NSDictionary *)userInfo {
     if (self.notificationCallbackId) {
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:userInfo];

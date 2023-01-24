@@ -205,3 +205,13 @@ function(options) {
         exec(resolve, reject, PLUGIN_NAME, "requestPermission", [options || {}]);
     });
 };
+
+exports.enableAutoInit =
+/**
+ * Enables auto-initialization if it has been disabled by configuration.
+ */
+function() {
+    return new Promise(function(resolve, reject) {
+        exec(resolve, reject, PLUGIN_NAME, "enableAutoInit", []);
+    });
+}

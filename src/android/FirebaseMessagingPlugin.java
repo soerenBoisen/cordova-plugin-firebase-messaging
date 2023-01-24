@@ -141,6 +141,12 @@ public class FirebaseMessagingPlugin extends ReflectiveCordovaPlugin {
         }
     }
 
+    @CordovaMethod
+    private void enableAutoInit(CallbackContext callbackContext) {
+        firebaseMessaging.setAutoInitEnabled(true);
+        callbackContext.success();
+    }
+
     @Override
     public void onNewIntent(Intent intent) {
         JSONObject notificationData = getNotificationData(intent);
