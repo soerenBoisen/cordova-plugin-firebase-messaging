@@ -6,23 +6,23 @@ class Logger {
     }
 
     #format(message) {
-        return `[${this.name}]: ${message}`;
+        return `${this.#name}: ${message}`;
     }
 
     debug(msg, ...args) {
-        console.debug(this.format(msg), ...args);
+        console.debug(this.#format(msg), ...args);
     }
 
     info(msg, ...args) {
-        console.info(this.format(msg), ...args);
+        console.info(this.#format(msg), ...args);
     }
 
     warn(msg, ...args) {
-        console.warn(this.format(msg), ...args);
+        console.warn(this.#format(msg), ...args);
     }
 
     error(msg, ...args) {
-        console.error(this.format(msg), ...args);
+        console.error(this.#format(msg), ...args);
     }
 }
 
