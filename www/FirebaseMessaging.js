@@ -206,12 +206,27 @@ function(options) {
     });
 };
 
-exports.enableAutoInit =
+exports.isAutoInitEnabled =
 /**
- * Enables auto-initialization if it has been disabled by configuration.
+ * Gets whether auto initialization is enabled.
+ * @returns {Promise<boolean>} Promise fulfilled with true if auto initialization is enabled,
+ * false otherwise.
  */
 function() {
     return new Promise(function(resolve, reject) {
-        exec(resolve, reject, PLUGIN_NAME, "enableAutoInit", []);
+        exec(resolve, reject, PLUGIN_NAME, "isAutoInitEnabled", []);
+    });
+}
+
+exports.setAutoInitEnabled =
+/**
+ * Sets auto initialization to enabled or disabled. Overrides setting from configuration.
+ * Persists across app restarts once set.
+ * @param {boolean} enable True to enable auto initialization, false to disable.
+ * @returns {Promise<void>} Fulfilled promise when operation is completed.
+ */
+function(enable) {
+    return new Promise(function(resolve, reject) {
+        exec(resolve, reject, PLUGIN_NAME, "setAutoInitEnabled", [enable]);
     });
 }

@@ -15,7 +15,8 @@
 - (void)onMessage:(CDVInvokedUrlCommand*)command;
 - (void)onBackgroundMessage:(CDVInvokedUrlCommand*)command;
 - (void)onTokenRefresh:(CDVInvokedUrlCommand*)command;
-- (void)enableAutoInit:(CDVInvokedUrlCommand*)command;
+- (void)isAutoInitEnabled:(CDVInvokedUrlCommand*)command;
+- (void)setAutoInitEnabled:(CDVInvokedUrlCommand*)command;
 - (void)sendToken:(NSString*)fcmToken;
 - (void)sendNotification:(NSDictionary*)userInfo;
 - (void)sendBackgroundNotification:(NSDictionary*)userInfo;

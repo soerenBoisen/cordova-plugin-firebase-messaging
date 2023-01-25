@@ -172,8 +172,17 @@
     self.tokenRefreshCallbackId = command.callbackId;
 }
 
-- (void)enableAutoInit:(CDVInvokedUrlCommand *)command {
-    [FIRMessaging messaging].autoInitEnabled = YES;
+- (void)isAutoInitEnabled:(CDVInvokedUrlCommand *)command {
+    bool enabled = [FIRMessaging messaging].isAutoInitEnabled
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:enabled];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)setAutoInitEnabled:(CDVInvokedUrlCommand *)command {
+    bool enabled = [[command.arguments objectAtIndex:0] boolValue];
+    [FIRMessaging messaging].autoInitEnabled = enabled;
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)sendNotification:(NSDictionary *)userInfo {
