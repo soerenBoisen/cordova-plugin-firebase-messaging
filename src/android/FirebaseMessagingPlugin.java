@@ -144,7 +144,8 @@ public class FirebaseMessagingPlugin extends ReflectiveCordovaPlugin {
     @CordovaMethod
     private void isAutoInitEnabled(CallbackContext callbackContext) {
         boolean enabled = firebaseMessaging.isAutoInitEnabled();
-        callbackContext.success(enabled);
+        PluginResult result = new PluginResult(PluginResult.Status.OK, enabled);
+        callbackContext.sendPluginResult(result);
     }
 
     @CordovaMethod
