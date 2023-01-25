@@ -10,19 +10,19 @@ class Logger {
     }
 
     debug(msg, ...args) {
-        console.debug(format(msg), ...args);
+        console.debug(this.format(msg), ...args);
     }
 
     info(msg, ...args) {
-        console.info(format(msg), ...args);
+        console.info(this.format(msg), ...args);
     }
 
     warn(msg, ...args) {
-        console.warn(format(msg), ...args);
+        console.warn(this.format(msg), ...args);
     }
 
     error(msg, ...args) {
-        console.error(format(msg), ...args);
+        console.error(this.format(msg), ...args);
     }
 }
 
