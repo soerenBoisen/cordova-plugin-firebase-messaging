@@ -2,7 +2,7 @@ class Logger {
     #name;
 
     constructor(name) {
-        this.name = name;
+        this.#name = name;
     }
 
     #format(message) {
